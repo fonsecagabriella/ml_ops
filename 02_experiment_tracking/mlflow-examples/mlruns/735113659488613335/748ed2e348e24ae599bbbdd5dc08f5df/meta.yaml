@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/748ed2e348e24ae599bbbdd5dc08f5df/artifacts
+end_time: 1746623745087
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 748ed2e348e24ae599bbbdd5dc08f5df
+run_name: hilarious-mink-626
+run_uuid: 748ed2e348e24ae599bbbdd5dc08f5df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623740842
+status: 3
+tags: []
+user_id: gabi

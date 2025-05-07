@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/76cb8d3a49c84a05b575af5c4cbb5a55/artifacts
+end_time: 1746623723800
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 76cb8d3a49c84a05b575af5c4cbb5a55
+run_name: nosy-ox-120
+run_uuid: 76cb8d3a49c84a05b575af5c4cbb5a55
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623719497
+status: 3
+tags: []
+user_id: gabi

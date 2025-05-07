@@ -8,7 +8,7 @@ The [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main) 
 - MLOps maturity model
 
 
-## Module 2: Experiment Tracking & Model Management
+## [Module 2: Experiment Tracking & Model Management](./02_experiment_tracking/)
 Introduction to experiment tracking
 MLflow basics
 Model saving and loading

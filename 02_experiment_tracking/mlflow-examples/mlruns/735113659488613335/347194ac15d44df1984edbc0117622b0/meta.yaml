@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/347194ac15d44df1984edbc0117622b0/artifacts
+end_time: 1746623753534
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 347194ac15d44df1984edbc0117622b0
+run_name: hyperopt_tuning
+run_uuid: 347194ac15d44df1984edbc0117622b0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623667570
+status: 3
+tags: []
+user_id: gabi

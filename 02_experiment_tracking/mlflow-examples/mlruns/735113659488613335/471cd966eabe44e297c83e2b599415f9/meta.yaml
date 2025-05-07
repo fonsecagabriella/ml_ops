@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/471cd966eabe44e297c83e2b599415f9/artifacts
+end_time: 1746623715243
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 471cd966eabe44e297c83e2b599415f9
+run_name: unequaled-yak-992
+run_uuid: 471cd966eabe44e297c83e2b599415f9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623711059
+status: 3
+tags: []
+user_id: gabi

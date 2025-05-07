@@ -1,0 +1,6 @@
+artifact_location: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/170590852748674860
+creation_time: 1746619556477
+experiment_id: '170590852748674860'
+last_update_time: 1746619556477
+lifecycle_stage: active
+name: my-experiment-1

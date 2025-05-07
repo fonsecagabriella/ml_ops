@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/6891834b0b5147c391faa233beff531d/artifacts
+end_time: 1746623690139
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 6891834b0b5147c391faa233beff531d
+run_name: funny-snake-786
+run_uuid: 6891834b0b5147c391faa233beff531d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623685847
+status: 3
+tags: []
+user_id: gabi

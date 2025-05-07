@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/4f6fe7d141804ff7adb51543e26ebf40/artifacts
+end_time: 1746623681582
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 4f6fe7d141804ff7adb51543e26ebf40
+run_name: puzzled-lark-749
+run_uuid: 4f6fe7d141804ff7adb51543e26ebf40
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623677352
+status: 3
+tags: []
+user_id: gabi

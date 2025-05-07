@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/338a0a8a80a04bbe9e3ff80886bbe1c4/artifacts
+end_time: 1746623740835
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 338a0a8a80a04bbe9e3ff80886bbe1c4
+run_name: skittish-skunk-725
+run_uuid: 338a0a8a80a04bbe9e3ff80886bbe1c4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623736639
+status: 3
+tags: []
+user_id: gabi

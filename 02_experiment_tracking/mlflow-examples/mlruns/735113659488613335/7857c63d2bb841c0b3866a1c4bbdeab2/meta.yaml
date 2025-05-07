@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/7857c63d2bb841c0b3866a1c4bbdeab2/artifacts
+end_time: 1746623732416
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 7857c63d2bb841c0b3866a1c4bbdeab2
+run_name: invincible-ram-512
+run_uuid: 7857c63d2bb841c0b3866a1c4bbdeab2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623728111
+status: 3
+tags: []
+user_id: gabi

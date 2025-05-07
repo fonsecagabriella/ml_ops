@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/170590852748674860/daa4d87c7703421cb72e543872c873d8/artifacts
+end_time: 1746621005263
+entry_point_name: ''
+experiment_id: '170590852748674860'
+lifecycle_stage: active
+run_id: daa4d87c7703421cb72e543872c873d8
+run_name: fearless-newt-576
+run_uuid: daa4d87c7703421cb72e543872c873d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746620999861
+status: 3
+tags: []
+user_id: gabi

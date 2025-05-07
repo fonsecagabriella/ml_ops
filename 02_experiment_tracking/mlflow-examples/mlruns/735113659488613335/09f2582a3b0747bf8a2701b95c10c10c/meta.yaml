@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/09f2582a3b0747bf8a2701b95c10c10c/artifacts
+end_time: 1746623736632
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 09f2582a3b0747bf8a2701b95c10c10c
+run_name: smiling-ram-926
+run_uuid: 09f2582a3b0747bf8a2701b95c10c10c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623732423
+status: 3
+tags: []
+user_id: gabi

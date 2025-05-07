@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/595a912ab83143dd8fa8f945427d013a/artifacts
+end_time: 1746623698593
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 595a912ab83143dd8fa8f945427d013a
+run_name: popular-mare-429
+run_uuid: 595a912ab83143dd8fa8f945427d013a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623694412
+status: 3
+tags: []
+user_id: gabi

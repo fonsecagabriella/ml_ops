@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/7f831accb5bb44618308aa45164ff060/artifacts
+end_time: 1746623749347
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: 7f831accb5bb44618308aa45164ff060
+run_name: luminous-perch-250
+run_uuid: 7f831accb5bb44618308aa45164ff060
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623745093
+status: 3
+tags: []
+user_id: gabi

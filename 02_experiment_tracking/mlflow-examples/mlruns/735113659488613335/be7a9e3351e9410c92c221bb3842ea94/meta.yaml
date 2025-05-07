@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/be7a9e3351e9410c92c221bb3842ea94/artifacts
+end_time: 1746623719490
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: be7a9e3351e9410c92c221bb3842ea94
+run_name: resilient-ram-583
+run_uuid: be7a9e3351e9410c92c221bb3842ea94
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623715250
+status: 3
+tags: []
+user_id: gabi

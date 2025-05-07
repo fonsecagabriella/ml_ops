@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335/e6ddefaa0dc84f33824162b1c1de555a/artifacts
+end_time: 1746623753529
+entry_point_name: ''
+experiment_id: '735113659488613335'
+lifecycle_stage: active
+run_id: e6ddefaa0dc84f33824162b1c1de555a
+run_name: overjoyed-crab-749
+run_uuid: e6ddefaa0dc84f33824162b1c1de555a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746623749354
+status: 3
+tags: []
+user_id: gabi

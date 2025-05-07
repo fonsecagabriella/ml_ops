@@ -1,0 +1,6 @@
+artifact_location: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/mlflow-examples/mlruns/735113659488613335
+creation_time: 1746623667460
+experiment_id: '735113659488613335'
+last_update_time: 1746623667460
+lifecycle_stage: active
+name: logistic_regression_hyperopt
