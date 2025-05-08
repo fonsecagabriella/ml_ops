@@ -9,11 +9,11 @@ The [MLOps Zoomcamp](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main) 
 
 
 ## [Module 2: Experiment Tracking & Model Management](./02_experiment_tracking/)
-Introduction to experiment tracking
-MLflow basics
-Model saving and loading
-Model registry
-Hands-on MLflow exercises
+- Introduction to experiment tracking
+- MLflow basics
+- Model saving and loading
+- Model registry
+
 
 ## Module 3: Orchestration & ML Pipelines
 Workflow orchestration

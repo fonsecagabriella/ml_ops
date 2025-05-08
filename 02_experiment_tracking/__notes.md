@@ -3,9 +3,9 @@
 Notes: https://github.com/ziritrion/mlopszoomcamp/blob/main/notes/2_experiment.md
 
 
-## Step-by-Step Tutorial: Installing and Using MLflow for Local Experiment Tracking
+## 01. Step-by-Step Tutorial: Installing and Using MLflow for Local Experiment Tracking
 
-### Step 1: Prepare Your Local Environment 
+**Step 1: Prepare Your Local Environment**
 
 **- Create a Python Virtual Environment (optional):**
 It is recommended to avoid messing with your system Python or existing installations. Use conda or virtualenv to create an isolated environment.
@@ -25,7 +25,7 @@ Use a prepared [requirements file](./requirements.txt) to install all necessary 
 
 You can verify the installations with `pip list`.
 
-### Step 2: Launch MLflow UI with a Backend Store
+**Step 2: Launch MLflow UI with a Backend Store**
 
 **- Understanding the Backend Store:**
 MLflow needs a backend store to save experiment metadata and artifacts. By default, it requires explicit configuration to avoid errors.
@@ -40,7 +40,7 @@ Open your browser and navigate to http://localhost:5000 to see the MLflow dashbo
 
 <img src="./imgs/01_mlflow_start.png" width="70%">
 
-### Step 3: Setup Your Jupyter Notebook for MLflow Experiment Tracking
+**Step 3: Setup Your Jupyter Notebook for MLflow Experiment Tracking**
 
 - Open the Relevant Jupyter Notebook:
 There is a list of examples [here](./mlflow-examples/)
@@ -59,7 +59,7 @@ Use MLflow’s set_experiment function to create or switch to an experiment. If 
 
 You should see a new experiment appear in the MLflow UI.
 
-### Step 4: Run and Track Your Model Experiments
+**Step 4: Run and Track Your Model Experiments**
 
 - Load and Preprocess Data
 
@@ -94,9 +94,113 @@ After running, go to the MLflow UI and refresh the page. You will see new runs w
 You can inspect run details, compare runs, and track experiment history visually.
 
 
-## MLflow simple commands
+## 02. MLflow
+
+### 02.1 Simple commands
 
 - `mlflow.start_run()` returns the current active run, if one exists. The returned object is a Python context manager, which means that we can use the with statement to wrap our experiment code and the run will automatically close once the statement exits.
 - `mlflow.set_tag()` creates a key-value tag in the current active run (for example, author name)
 - `mlflow.log_param()` logs a single key-value param in the current active run.
 - `mlflow.log_metrics()` logs a single key-value metric, which must always be a number. MLflow will remember the value history for each metric.
+
+### 02.2 Load back a model
+
+When we are using MLflow, we have this line: `mlflow.sklearn.log_model(model, artifact_path="model")`. In essence, we're telling MLFlow: "Save this model inside the run's artifact folder, in a subfolder named model".
+
+To load back this model we need to:
+
+1. Get the run id
+
+```python
+with mlflow.start_run() as run:
+    run_id = run.info.run_id
+```
+
+2. Load the model
+
+```python
+import mlflow.sklearn
+
+# Replace with your actual run ID
+run_id = "abc123def456"
+
+# Load the model from the "model" artifact path of the run
+model = mlflow.sklearn.load_model(f"runs:/{run_id}/model")
+
+# Now you can use it
+y_pred = model.predict(X_val)
+
+```
+
+### 02.3 Selecting the best model
+
+- From MLflow UI, filter runs by the desired metric, e.g., lowest RMSE.
+- Inspect hyperparameters of best runs.
+- Consider not only error but also model complexity, training time, and other practical metrics.
+- Choose a model balancing accuracy and other constraints.
+
+
+## 03. Hyperparameter Tuning with Hyperopt and Logging with MLflow
+Hyperopt is a Python library used for automated hyperparameter tuning. It helps with:
+
+- Defining a search space of possible parameter values
+- Using a smart search algorithm (e.g. Bayesian optimization) to explore it
+- Evaluating model performance for each trial
+- Returning the best parameters found
+
+### 03.1 Key concepts in Hyperopt
+
+- **Search space**: Define which parameters to optimise and their ranges/types.
+
+```python
+space = {
+    'C': hp.loguniform('C', -4, 2),  # C between exp(-4) and exp(2)
+    'penalty': hp.choice('penalty', ['l1', 'l2'])
+}
+```
+
+- **Objective function**: A function that takes parameters as input and returns a loss/error to minimise.
+
+```python
+def objective(params):
+    model = LogisticRegression(**params)
+    model.fit(X_train, y_train)
+    acc = accuracy_score(y_val, model.predict(X_val))
+    return {'loss': -acc, 'status': STATUS_OK}
+```
+- **Search algorithm**:
+    - `tpe.suggest` (Tree-structured Parzen Estimator) – smart, Bayesian-like
+    - `rand.suggest` – random search
+
+
+- **Running the optimisation:**
+
+Below Hyperopt will try up to 50 different combinations and return the best one it found. It's much smarter than grid search or manual tuning.
+
+```python
+from hyperopt import fmin, tpe, Trials
+
+best = fmin(
+    fn=objective,
+    space=space,
+    algo=tpe.suggest,
+    max_evals=50,
+    trials=Trials()
+)
+```
+
+- **NOTE**: Example of implementation [here](./mlflow-examples/scenario-4.ipynb)
+
+## 04. Model selection & registry
+To decide on a model, you should also look:
+
+- The loss metric
+- The time it took to train (models that took longer to train, are usually more complex)
+- The size of the model
+
+When you access these three, you can better select the model that should go into production.
+
+To register a model, you can select the model in MLFlow, and then register it there.
+
+<img src="./imgs/mlflow-register.png">
+
