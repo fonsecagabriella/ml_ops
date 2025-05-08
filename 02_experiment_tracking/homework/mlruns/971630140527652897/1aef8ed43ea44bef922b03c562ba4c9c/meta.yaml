@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/homework/mlruns/971630140527652897/1aef8ed43ea44bef922b03c562ba4c9c/artifacts
+end_time: 1746713704041
+entry_point_name: ''
+experiment_id: '971630140527652897'
+lifecycle_stage: active
+run_id: 1aef8ed43ea44bef922b03c562ba4c9c
+run_name: thundering-skink-313
+run_uuid: 1aef8ed43ea44bef922b03c562ba4c9c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746713682136
+status: 3
+tags: []
+user_id: gabi

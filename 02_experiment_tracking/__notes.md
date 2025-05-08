@@ -1,6 +1,7 @@
 # MLOps - Experiment Tracking
 
-Notes: https://github.com/ziritrion/mlopszoomcamp/blob/main/notes/2_experiment.md
+📝 [Other awesome notes](https://github.com/ziritrion/mlopszoomcamp/blob/main/notes/2_experiment.md)
+
 
 
 ## 01. Step-by-Step Tutorial: Installing and Using MLflow for Local Experiment Tracking

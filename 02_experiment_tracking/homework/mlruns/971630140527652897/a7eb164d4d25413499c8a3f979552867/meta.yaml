@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/02_experiment_tracking/homework/mlruns/971630140527652897/a7eb164d4d25413499c8a3f979552867/artifacts
+end_time: 1746713615696
+entry_point_name: ''
+experiment_id: '971630140527652897'
+lifecycle_stage: active
+run_id: a7eb164d4d25413499c8a3f979552867
+run_name: ambitious-wolf-50
+run_uuid: a7eb164d4d25413499c8a3f979552867
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746713615689
+status: 4
+tags: []
+user_id: gabi
