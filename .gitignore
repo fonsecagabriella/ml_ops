@@ -1,3 +1,7 @@
+# Ignore experiment‑tracking output entirely
+mlruns/
 
-# MLruns
-./02_experitment_tracking/mlflow-examples/mlruns/*
+# IDE & OS cruft (optional, but handy)
+.DS_Store
+.idea/
+.vscode/
