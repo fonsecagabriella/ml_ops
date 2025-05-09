@@ -1,7 +1,29 @@
 # MLOps - Experiment Tracking
 
+## 📚 Index
+
+1. [Step-by-Step Tutorial: Installing and Using MLflow for Local Experiment Tracking](#01-step-by-step-tutorial-installing-and-using-mlflow-for-local-experiment-tracking)  
+   1.1 [Prepare Your Local Environment](#step-1-prepare-your-local-environment)  
+   1.2 [Launch MLflow UI with a Backend Store](#step-2-launch-mlflow-ui-with-a-backend-store)  
+   1.3 [Setup Your Jupyter Notebook](#step-3-setup-your-jupyter-notebook-for-mlflow-experiment-tracking)  
+   1.4 [Run and Track Your Model Experiments](#step-4-run-and-track-your-model-experiments)  
+
+2. [MLflow](#02-mlflow)  
+   2.1 [Simple Commands](#021-simple-commands)  
+   2.2 [Load Back a Model](#022-load-back-a-model)  
+   2.3 [Selecting the Best Model](#023-selecting-the-best-model)  
+
+3. [Hyperparameter Tuning with Hyperopt and Logging with MLflow](#03-hyperparameter-tuning-with-hyperopt-and-logging-with-mlflow)  
+   3.1 [Key Concepts in Hyperopt](#031-key-concepts-in-hyperopt)  
+
+4. [Model Selection & Registry](#04-model-selection--registry)  
+
+
+-------
+
 📝 [Other awesome notes](https://github.com/ziritrion/mlopszoomcamp/blob/main/notes/2_experiment.md)
 
+------
 
 
 ## 01. Step-by-Step Tutorial: Installing and Using MLflow for Local Experiment Tracking
