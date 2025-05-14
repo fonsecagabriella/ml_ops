@@ -19,3 +19,117 @@ Different deployment methods come with varying cost structures. Batch jobs tend 
 
 ### 🔄 Feedback Loop Importance
 Each deployment strategy can benefit from feedback systems. In streaming architectures, real-time feedback can be collected and used for immediate adjustments, enhancing the model over time. In contrast, batch processing might rely more heavily on back-testing results, which can lead to longer iteration cycles in terms of improvements.
+
+
+## 02.0 Deploy a model as a webservice
+
+### 02.1 Prepare Your Model
+- Start with [a machine learning model saved as a pickle](./web_service/lin_reg.bin) (.bin) file.
+
+- Ensure you have the exact version of the model dependencies (e.g., scikit-learn) used when creating the model because unpickling with a different version can cause errors. You can run in the terminal `pip freeze | grep scikit-learn` or `python -c "import sklearn; print(sklearn.__version__)"`
+
+### 02.2 Create a Virtual Environment
+Use pipenv (or another virtual environment tool) to isolate your project dependencies:
+`pipenv install scikit-learn==1.5.1 flask  --python 3.12.2`
+
+Activate the environment:
+`pipenv shell`
+
+This ensures consistency in dependencies and runtime, matching your development environment.
+
+### 02.3 Build Your Prediction Script ([`predict.py`](./web_service/predict.py))
+Create a Python script that:
+- Loads the pickle model file in read mode.
+- Defines a prepare_features function for feature engineering (e.g., combining pickup and dropoff IDs into a composite feature).
+- Defines a predict function which transforms input features and calls the model’s .predict() method.
+- Optionally, create a test.py file that imports predict.py and runs prediction tests locally.
+
+Summary of main parts:
+
+```py
+import pickle 
+from flask import Flask, request, jsonify
+
+with open("model.bin", "rb") as f_in:
+    dv, model = pickle.load(f_in)
+
+def prepare_features(ride):
+    pu_do = f"{ride['pickup_location_id']}_{ride['dropoff_location_id']}"
+    features = { "pu_do": pu_do, "trip_distance": ride["trip_distance"], }
+    return features 
+
+def predict(features):
+    X = dv.transform([features])
+    prediction = model.predict(X)[0]
+    return prediction
+```
+
+### 02.4 Wrap Prediction in a Flask API
+- Initialize a Flask app instance.
+- Create an endpoint (e.g., /predict) that accepts POST requests with JSON payload containing ride data.
+
+The endpoint:
+- Extracts ride features from the request.
+- Prepares features and predicts the trip duration.
+- Returns a JSON response with the prediction.
+
+You can test if the app works after you started the server with `pipenv shell`, run `python predict.py` to start the app. Then in another terminal, try the `python test.py`
+
+### 02.5 Use Gunicorn for Production-like Server
+Flask’s built-in server is for development only and shows warnings for production use.
+
+- Install Gunicorn:
+`pipenv install gunicorn`
+
+- Run your Flask app with Gunicorn:
+`gunicorn --bind 0.0.0.0:9696 predict:app`
+
+    - Note: Here, `predict:app` means: from `predict.py`, use the app object
+
+This command points Gunicorn to the Flask app instance in `predict.py`, enabling a production-ready WSGI server.
+
+### 02.6  Create a Dockerfile to Containerize the Application
+- Use an official lightweight Python 3.12 image as base:
+`FROM python:3.12.10-slim`
+
+- Set working directory inside the container:
+`WORKDIR /app`
+
+- Copy dependency manifest files and install dependencies via pipenv or pip:
+```bash
+COPY Pipfile Pipfile.lock /app/ 
+RUN pip install --upgrade pip RUN pip install pipenv 
+RUN pipenv install --system --deploy
+```
+
+- Copy the model and prediction script:
+```bash
+COPY model.bin predict.py /app/
+Expose port 9696 (the port Flask app runs on):
+EXPOSE 9696
+```
+
+- Define the command to run the app via Gunicorn:
+`CMD ["gunicorn", "--bind", "0.0.0.0:9696", "predict:app"]`
+
+- Full [dockerfile](./web_service/Dockerfile)
+
+###  02.6 Build and Run Docker Container
+- Build the Docker image with a tag:
+`docker build -t duration-prediction-service:v1 .` 
+
+- Run the docker container mapping port 9696:
+`docker run -it --rm -p 9696:9696 duration-prediction-service:v1`
+
+Your Flask API is now running inside the container, accessible via localhost:9696.
+
+### 02.7 Test the Dockerized API
+Use the same test script or curl to send requests to the Docker container:
+
+```bash
+curl -X POST http://localhost:9696/predict \
+  -H "Content-Type: application/json" \
+  -d '{"PULocationID": 10, "DOLocationID": 50, "trip_distance": 40}'
+```
+
+You should receive a JSON response with the prediction.
