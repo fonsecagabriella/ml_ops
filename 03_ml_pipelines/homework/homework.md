@@ -123,16 +123,13 @@ What's the intercept of the model?
 
 Hint: print the `intercept_` field in the code block
 
-- 21.77
-- 24.77
-- 27.77
-- 31.77
-
+> - 24.77
 
 
 **👩🏽‍💻 Steps taken**
 
 As with the previous question, create a `transformer`.
+The file is [here](./../mlops/mlops/homework_03/)
 
 <img src="./imgs/06_mage_train.png">
 
