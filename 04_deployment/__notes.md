@@ -1,5 +1,27 @@
 # Deployment
 
+## 📚 Index
+
+1. [Key Insights](#key-insights)  
+   - [Batch Mode Deployment](#️-batch-mode-deployment)  
+   - [Web Service Deployment](#-web-service-deployment)  
+   - [Streaming Architecture](#-streaming-architecture)  
+   - [Scalability of Streaming Models](#️-scalability-of-streaming-models)  
+   - [Cost Implications of Deployment Choices](#cost-implications-of-deployment-choices)  
+   - [Feedback Loop Importance](#-feedback-loop-importance)  
+
+2. [Deploy a Model as a Web Service](#02-deploy-a-model-as-a-webservice)  
+   2.1 [Prepare Your Model](#021-prepare-your-model)  
+   2.2 [Create a Virtual Environment](#022-create-a-virtual-environment)  
+   2.3 [Build Your Prediction Script](#023-build-your-prediction-script-predictpy)  
+   2.4 [Wrap Prediction in a Flask API](#024-wrap-prediction-in-a-flask-api)  
+   2.5 [Use Gunicorn for Production-like Server](#025-use-gunicorn-for-production-like-server)  
+   2.6 [Create a Dockerfile to Containerize the Application](#026--create-a-dockerfile-to-containerize-the-application)  
+   2.7 [Build and Run Docker Container](#-027-build-and-run-docker-container)  
+   2.8 [Test the Dockerized API](#028-test-the-dockerized-api)  
+
+--
+
 ## Key Insights
 
 <img src="./imgs/deployment-overview.png">
@@ -21,7 +43,9 @@ Different deployment methods come with varying cost structures. Batch jobs tend 
 Each deployment strategy can benefit from feedback systems. In streaming architectures, real-time feedback can be collected and used for immediate adjustments, enhancing the model over time. In contrast, batch processing might rely more heavily on back-testing results, which can lead to longer iteration cycles in terms of improvements.
 
 
-## 02.0 Deploy a model as a webservice
+## 02. Deploy a model as a webservice
+
+📺 [Link to the video tutorial](https://www.youtube.com/watch?v=D7wfMAdgdF8)
 
 ### 02.1 Prepare Your Model
 - Start with [a machine learning model saved as a pickle](./web_service/lin_reg.bin) (.bin) file.
@@ -114,7 +138,7 @@ EXPOSE 9696
 
 - Full [dockerfile](./web_service/Dockerfile)
 
-###  02.6 Build and Run Docker Container
+###  02.7 Build and Run Docker Container
 - Build the Docker image with a tag:
 `docker build -t duration-prediction-service:v1 .` 
 
@@ -123,7 +147,7 @@ EXPOSE 9696
 
 Your Flask API is now running inside the container, accessible via localhost:9696.
 
-### 02.7 Test the Dockerized API
+### 02.8 Test the Dockerized API
 Use the same test script or curl to send requests to the Docker container:
 
 ```bash
@@ -133,3 +157,5 @@ curl -X POST http://localhost:9696/predict \
 ```
 
 You should receive a JSON response with the prediction.
+
+You can now deploy this Docker container on any platform with Docker support such as AWS Elastic Beanstalk, Kubernetes, or others for production use. 🥳
