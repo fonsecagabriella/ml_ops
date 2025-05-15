@@ -24,7 +24,7 @@
 
 ## Key Insights
 
-<img src="./imgs/deployment-overview.png">
+<img src="./imgs/deployment-overview.png" width="60%">
 
 Deployment strategies must be tailored to specific use cases for optimal performance. While batch processing works well for campaigns focused on historical data, web services are indispensable in low-latency scenarios, and streaming suits dynamic, real-time environments. The key lies in balancing effectiveness with resource management and user expectations.
 
@@ -159,3 +159,18 @@ curl -X POST http://localhost:9696/predict \
 You should receive a JSON response with the prediction.
 
 You can now deploy this Docker container on any platform with Docker support such as AWS Elastic Beanstalk, Kubernetes, or others for production use. 🥳
+
+## 03.1 Getting the models from the model registry (MLflow)
+
+[This tutorial](https://www.youtube.com/watch?v=aewOpHSCkqI) builds on a prior setup where a linear regression model was deployed as a Flask web service. Now, we enhance it by fetching models directly from the MLflow model registry using run IDs, managing model artifacts better, and removing dependencies on the MLflow tracking server.
+
+### 03.1 Step 1: Prepare the ML Model with MLflow
+- Train a Random Forest model locally or remotely.
+- Use `mlflow.sklearn.log_model` to log the model.
+- Log the dictionary vectorizer separately as an artifact initially.
+- Store model parameters and metrics as part of the MLflow run.
+- Once your experiment is logged, you will have a run ID to identify your model version uniquely.
+
+Example Sketch:
+
+import mlflow from sklearn.ensemble import RandomForestRegressor from sklearn.feature_extraction import DictVectorizer from sklearn.pipeline import make_pipeline # Prepare your data dictionaries here (X_train_dict, y_train, etc.) # Create a pipeline combining DictVectorizer and RandomForestRegressor pipeline = make_pipeline(DictVectorizer(), RandomForestRegressor(**params)) # Train the model pipeline pipeline.fit(X_train_dict, y_train) # Log the entire pipeline as one model artifact with mlflow.start_run() as run: mlflow.sklearn.log_model(pipeline, "model") mlflow.log_params(params) mlflow.log_metric("mse", mse_value) run_id = run.info.run_id # Save for deployment

@@ -1,0 +1,6 @@
+artifact_location: /Users/gabi/codes/ml_ops/04_deployment/web_service_mlflow/mlruns/908903344791014962
+creation_time: 1747301871896
+experiment_id: '908903344791014962'
+last_update_time: 1747301871896
+lifecycle_stage: active
+name: green-taxi-duration

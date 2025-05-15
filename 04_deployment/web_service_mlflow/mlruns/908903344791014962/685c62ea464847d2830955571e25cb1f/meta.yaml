@@ -1,0 +1,15 @@
+artifact_uri: /Users/gabi/codes/ml_ops/04_deployment/web_service_mlflow/mlruns/908903344791014962/685c62ea464847d2830955571e25cb1f/artifacts
+end_time: 1747302048581
+entry_point_name: ''
+experiment_id: '908903344791014962'
+lifecycle_stage: active
+run_id: 685c62ea464847d2830955571e25cb1f
+run_name: capable-fawn-441
+run_uuid: 685c62ea464847d2830955571e25cb1f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747302037221
+status: 3
+tags: []
+user_id: gabi

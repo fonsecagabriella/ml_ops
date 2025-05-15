@@ -1,0 +1,16 @@
+artifact_uri: /Users/gabi/codes/ml_ops/04_deployment/web_service_mlflow/mlruns/908903344791014962/5ca201ca6d344179a2de99a43cfa9baa/artifacts
+deleted_time: 1747303338611
+end_time: 1747302027579
+entry_point_name: ''
+experiment_id: '908903344791014962'
+lifecycle_stage: deleted
+run_id: 5ca201ca6d344179a2de99a43cfa9baa
+run_name: defiant-roo-156
+run_uuid: 5ca201ca6d344179a2de99a43cfa9baa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747302022856
+status: 4
+tags: []
+user_id: gabi

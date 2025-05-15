@@ -1,0 +1,15 @@
+artifact_uri: /Users/gabi/codes/ml_ops/04_deployment/web_service_mlflow/mlruns/908903344791014962/9d0c0a7479094f4fbb5f789646d6aa06/artifacts
+end_time: 1747303300845
+entry_point_name: ''
+experiment_id: '908903344791014962'
+lifecycle_stage: active
+run_id: 9d0c0a7479094f4fbb5f789646d6aa06
+run_name: powerful-grub-548
+run_uuid: 9d0c0a7479094f4fbb5f789646d6aa06
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747303297777
+status: 3
+tags: []
+user_id: gabi
