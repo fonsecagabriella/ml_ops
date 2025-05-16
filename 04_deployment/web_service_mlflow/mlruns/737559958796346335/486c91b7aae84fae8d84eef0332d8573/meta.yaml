@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/737559958796346335/486c91b7aae84fae8d84eef0332d8573/artifacts
+end_time: 1747390127295
+entry_point_name: ''
+experiment_id: '737559958796346335'
+lifecycle_stage: active
+run_id: 486c91b7aae84fae8d84eef0332d8573
+run_name: clumsy-slug-591
+run_uuid: 486c91b7aae84fae8d84eef0332d8573
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747390116940
+status: 3
+tags: []
+user_id: gabi

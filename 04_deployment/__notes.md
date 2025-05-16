@@ -24,7 +24,7 @@
 
 ## Key Insights
 
-<img src="./imgs/deployment-overview.png" width="60%">
+<img src="./imgs/deployment-overview.png" width="30%">
 
 Deployment strategies must be tailored to specific use cases for optimal performance. While batch processing works well for campaigns focused on historical data, web services are indispensable in low-latency scenarios, and streaming suits dynamic, real-time environments. The key lies in balancing effectiveness with resource management and user expectations.
 
@@ -171,6 +171,43 @@ You can now deploy this Docker container on any platform with Docker support suc
 - Store model parameters and metrics as part of the MLflow run.
 - Once your experiment is logged, you will have a run ID to identify your model version uniquely.
 
-Example Sketch:
+- **Updated [project structure](./web_service_mlflow/)**
 
-import mlflow from sklearn.ensemble import RandomForestRegressor from sklearn.feature_extraction import DictVectorizer from sklearn.pipeline import make_pipeline # Prepare your data dictionaries here (X_train_dict, y_train, etc.) # Create a pipeline combining DictVectorizer and RandomForestRegressor pipeline = make_pipeline(DictVectorizer(), RandomForestRegressor(**params)) # Train the model pipeline pipeline.fit(X_train_dict, y_train) # Log the entire pipeline as one model artifact with mlflow.start_run() as run: mlflow.sklearn.log_model(pipeline, "model") mlflow.log_params(params) mlflow.log_metric("mse", mse_value) run_id = run.info.run_id # Save for deployment
+```bash
+web-service-mlflow/
+├── Dockerfile
+├── Pipfile
+├── Pipfile.lock
+├── predict.py
+├── mlruns/                  # stores your MLflow logs
+└── random-forest.py                 # ← New: a script that logs to MLflow
+```
+
+- Start mlflow server
+```bash
+mlflow server \
+  --backend-store-uri ./mlruns \
+  --artifacts-destination ./artifacts \
+  --serve-artifacts \
+  --host 0.0.0.0 \
+  --port 5001
+```
+
+- Train [a new model](./web_service_mlflow/random-forest.ipynb)
+(make sure this model is tested here, in this order, as you could face issues with path due to local deployment)
+
+- Run the docker container
+
+```bash
+docker run -it --rm -p 9696:9696 \
+  -e MLFLOW_TRACKING_URI=http://host.docker.internal:5001 \
+  -e RUN_ID=486c91b7aae84fae8d84eef0332d8573 \
+  duration-prediction-service-mlflow:v1
+```
+
+- test the dockerized API
+```bash
+curl -X POST http://localhost:9696/predict \
+  -H "Content-Type: application/json" \
+  -d '{"PULocationID": 10, "DOLocationID": 50, "trip_distance": 40}'
+```

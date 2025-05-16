@@ -1,8 +1,9 @@
 artifact_uri: /Users/gabi/codes/ml_ops/04_deployment/web_service_mlflow/mlruns/908903344791014962/685c62ea464847d2830955571e25cb1f/artifacts
+deleted_time: 1747390368336
 end_time: 1747302048581
 entry_point_name: ''
 experiment_id: '908903344791014962'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 685c62ea464847d2830955571e25cb1f
 run_name: capable-fawn-441
 run_uuid: 685c62ea464847d2830955571e25cb1f

@@ -1,0 +1,16 @@
+artifact_uri: /Users/gabi/codes/ml_ops/04_deployment/web_service_mlflow/mlruns/908903344791014962/3afb8f4ea4a14602908fb4b936e65025/artifacts
+deleted_time: 1747390368336
+end_time: 1747389680363
+entry_point_name: ''
+experiment_id: '908903344791014962'
+lifecycle_stage: deleted
+run_id: 3afb8f4ea4a14602908fb4b936e65025
+run_name: skillful-dog-813
+run_uuid: 3afb8f4ea4a14602908fb4b936e65025
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747389666799
+status: 3
+tags: []
+user_id: gabi

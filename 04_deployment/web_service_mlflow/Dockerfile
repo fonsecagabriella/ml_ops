@@ -9,7 +9,7 @@ COPY [ "Pipfile", "Pipfile.lock", "./" ]
 
 RUN pipenv install --system --deploy
 
-COPY [ "predict.py", "lin_reg.bin", "./" ]
+COPY [ "predict.py", "./" ]
 
 EXPOSE 9696
 

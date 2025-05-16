@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/gabi/codes/ml_ops/mlruns/0/1d247eb7c01c4aa194c16d56fb7b7fb7/artifacts
+end_time: 1747389788033
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1d247eb7c01c4aa194c16d56fb7b7fb7
+run_name: aged-elk-285
+run_uuid: 1d247eb7c01c4aa194c16d56fb7b7fb7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747389782073
+status: 3
+tags: []
+user_id: gabi

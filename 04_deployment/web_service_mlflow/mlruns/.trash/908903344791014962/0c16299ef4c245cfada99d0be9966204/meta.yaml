@@ -1,0 +1,16 @@
+artifact_uri: /Users/gabi/codes/ml_ops/04_deployment/web_service_mlflow/mlruns/908903344791014962/0c16299ef4c245cfada99d0be9966204/artifacts
+deleted_time: 1747390368336
+end_time: 1747387852019
+entry_point_name: ''
+experiment_id: '908903344791014962'
+lifecycle_stage: deleted
+run_id: 0c16299ef4c245cfada99d0be9966204
+run_name: sneaky-frog-173
+run_uuid: 0c16299ef4c245cfada99d0be9966204
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747387842028
+status: 3
+tags: []
+user_id: gabi
