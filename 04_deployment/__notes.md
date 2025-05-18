@@ -20,6 +20,8 @@
    2.7 [Build and Run Docker Container](#-027-build-and-run-docker-container)  
    2.8 [Test the Dockerized API](#028-test-the-dockerized-api)  
 
+3. [03.1 Getting the models from the model registry (MLflow)](#031-getting-the-models-from-the-model-registry-mlflow)
+
 --
 
 ## Key Insights
