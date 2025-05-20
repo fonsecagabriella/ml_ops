@@ -59,7 +59,7 @@ It is ok if you get this warning, you can ignore it:
 1. Click on the pipeline named **`example_pipeline`**.
 1. Click on the button labeled **`Run @once`**.
 
-### 03.1 Your own first ML pipeline in five clicks
+### 02.2 Your own first ML pipeline in five clicks
 1. New pipeline → Start from scratch (or choose a template).
 
 2. Add blocks:
@@ -82,7 +82,7 @@ It is ok if you get this warning, you can ignore it:
 
 - A Medium walk‑through that mirrors these steps: [Movie recommendation example](https://medium.com/%40yhulsurk/managing-data-pipelines-with-mage-ai-building-a-movie-recommendation-system-8b0e6d45fab9)
 
-## 02.4 MLOps-Specific Tips
+## 03 MLOps-Specific Tips
 
 | **Need**                   | **Mage Feature / Add-On**                                                                                                                                       |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
