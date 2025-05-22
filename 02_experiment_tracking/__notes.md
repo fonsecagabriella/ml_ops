@@ -43,6 +43,9 @@ After that, activate the environment:
 
 **- Install Required Packages:**
 Use a prepared [requirements file](./requirements.txt) to install all necessary dependencies including MLflow, Jupyter Notebook, pandas, scikit-learn, and others.
+To download the file into your local Linux environment, navigate to your desired directory and run:
+
+`wget https://raw.githubusercontent.com/DataTalksClub/mlops-zoomcamp/refs/heads/main/02-experiment-tracking/requirements.txt`
 
 `pip install -r requirements.txt`
 
