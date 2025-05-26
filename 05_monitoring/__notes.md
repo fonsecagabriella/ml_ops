@@ -16,3 +16,36 @@
 - **🏢 Leveraging Existing Company Monitoring Infrastructures:** Many organizations already have production monitoring frameworks (e.g., Prometheus, Grafana, BI tools). Adapting these for ML model monitoring conserves resources and accelerates adoption. Starting with simpler batch analysis using BI dashboards can provide immediate value before introducing more sophisticated automation.
 
 - **🛠️ Building a Generalizable and Modular Monitoring Pipeline:** The architecture outlined (logging, batch metrics computation, database storage, dashboard visualization) is decoupled and flexible. It supports diverse model types, varying deployment modes, and evolving monitoring needs. Using open-source tools like Evidently AI reduces development effort and ensures robust, reproducible monitoring.
+
+## 02. Setting up the environement
+
+📺 [Link to the video](https://www.youtube.com/watch?v=yixA3C1xSxc)
+
+- Tools used in Docker:
+    - **Adminer:** Lightweight web app for browsing, querying, and managing your SQL databases (like PostgreSQL) through a simple point-and-click interface instead of the command line
+    - **Grafana:** It lets you build real-time dashboards—charts, alerts, and panels—that visualize metrics and logs from your systems, so you can monitor how everything is running at a glance
+
+
+**STEPS**
+
+0. Inside a folder [taxi_monitoring](./taxi_monitoring/)
+
+1. Create virtual environment and activate it 
+(eg. `python -m venv venv` && `source ./venv/bin/activate` or `conda create -n venv python=3.11` && `conda activate venv`)
+
+2. Install [required packages](./taxi_monitoring/requirements.txt)
+`pip install -r requirements.txt`
+
+3. Create [docker-compose file](./taxi_monitoring/docker-compose.yml)
+
+4. Create a folder [config](./taxi_monitoring/config/) and then the [grafana_datasources](./taxi_monitoring/config/grafana_datasources.yaml) file.
+
+5. Save everything and try to run the container
+`docker-compose up --build`
+
+6. ✅ Verification Through UI Access Confirms System Integrity
+    - Test Grafana: http://localhost:3000/
+    - Test Adminer: http://localhost:8080/
+
+
+3. Run baseline_model_nyc_taxi_data.ipynb for downloading datasets, training model and creating reference dataset
