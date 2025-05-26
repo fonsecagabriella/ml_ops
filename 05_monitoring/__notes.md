@@ -21,9 +21,10 @@
 
 📺 [Link to the video](https://www.youtube.com/watch?v=yixA3C1xSxc)
 
-- Tools used in Docker:
+- Services used in Docker:
     - **Adminer:** Lightweight web app for browsing, querying, and managing your SQL databases (like PostgreSQL) through a simple point-and-click interface instead of the command line
     - **Grafana:** It lets you build real-time dashboards—charts, alerts, and panels—that visualize metrics and logs from your systems, so you can monitor how everything is running at a glance
+    - **PostgreSQL** db used for storing metrics data
 
 
 **STEPS**
@@ -49,3 +50,31 @@
 
 
 3. Run baseline_model_nyc_taxi_data.ipynb for downloading datasets, training model and creating reference dataset
+
+## 03. Prepare reference and model
+
+📺 [Link to the video](https://www.youtube.com/watch?v=IjNrkqMYQeQ)
+
+1. Create the folders `models` and `data` inside [taxi_monitoring](./taxi_monitoring/)
+
+2. Run Jupyter, and create the file [baseline model](./taxi_monitoring/baseline_model_nyc_taxi_data.ipynb)
+
+Ps: With the file above, you will also cover videos [04 Evidently Metrics Calculation](https://www.youtube.com/watch?v=kP3lzh_HfWYB) & [05 Evidently Monitoring Dashboard](https://www.youtube.com/watch?v=zjvYhDPzFlY)
+
+## 04. Clarifying concepts Metrics & Monitoring
+
+### What “drift” means in ML monitoring
+- **Data drift (a.k.a. covariate shift):** The statistical properties of the input data change after the model is deployed.
+    - Example: your training set had mostly weekday taxi rides, but production traffic is now weekend-heavy—trip-distance and pickup-time distributions move.
+
+- **Concept drift**: The relationship between inputs and the target changes.
+    - Example: a fare-estimation model was trained when fuel was cheap; fuel surcharges later increase fares for the same trip length.
+
+Evidently focuses first on data drift: it compares each column’s current distribution with a reference distribution (usually a slice of your training data). If the distance between the two exceeds a threshold, that column is flagged as “drifted.
+
+### “Drifted columns”
+- A column (feature, prediction, or target) is “drifted” when its new distribution is statistically different from the reference.
+
+- Evidently quantifies this with a test or distance metric—here, the normalized Wasserstein distance.You set or accept a threshold (e.g., 0.1). If the drift score ≥ threshold, the column is marked drifted; otherwise, “no drift detected.”
+
+So, “drifted columns” are simply the features or outputs whose statistical behavior has shifted enough that Evidently (or another monitor) raises a flag, telling you the data flowing through—or produced by—your model no longer matches what it learned from.
