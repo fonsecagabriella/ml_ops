@@ -78,3 +78,24 @@ Evidently focuses first on data drift: it compares each column’s current distr
 - Evidently quantifies this with a test or distance metric—here, the normalized Wasserstein distance.You set or accept a threshold (e.g., 0.1). If the drift score ≥ threshold, the column is marked drifted; otherwise, “no drift detected.”
 
 So, “drifted columns” are simply the features or outputs whose statistical behavior has shifted enough that Evidently (or another monitor) raises a flag, telling you the data flowing through—or produced by—your model no longer matches what it learned from.
+
+## 05. Dummy monitoring
+
+📺 [Link to the video](https://www.youtube.com/watch?v=s3G4PMsOMOA)
+
+1. Prepare the file [dummy_metrics_calculation.py](./taxi_monitoring/dummy_metrics_calculation.py)
+
+2. Run `docker-compose up``
+
+3. Make sure you have your virtual environment activated and then run the script you prepared `python dummy_metrics_calculation.py`
+
+4. According to the info you set in the docker-compose file, you can go to db Adminer (localhost:8080) and check if the dummy data is being fed correctly
+
+<img src="./imgs/01_adminer.png" width="50%">
+
+5. Visualise the data in Grafana. You will need to create a new dashboard. From there you can create a query with the dummy values.
+
+<img src="./imgs/02_grafana.png" width="50%">
+
+
+
