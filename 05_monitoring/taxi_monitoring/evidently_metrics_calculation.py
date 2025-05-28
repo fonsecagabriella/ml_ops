@@ -88,7 +88,7 @@ def batch_monitoring_backfill():
 	prep_db()
 	last_send = datetime.datetime.now() - datetime.timedelta(seconds=10)
 	with psycopg.connect("host=localhost port=5432 dbname=test user=postgres password=example", autocommit=True) as conn:
-		for i in range(0, 27):
+		for i in range(0, 27): # this is 27 days of data in February
 			with conn.cursor() as curr:
 				calculate_metrics_postgresql(curr, i)
 

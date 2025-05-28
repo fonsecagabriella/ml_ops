@@ -1,4 +1,4 @@
-# Homework - Week 03 [DRAFT]
+# Homework - Week 03 
 
 The goal of this homework is to create a simple training pipeline, use mlflow to track experiments and register best model, but use Mage for it.
 

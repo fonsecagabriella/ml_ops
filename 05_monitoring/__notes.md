@@ -97,5 +97,20 @@ So, “drifted columns” are simply the features or outputs whose statistical b
 
 <img src="./imgs/02_grafana.png" width="50%">
 
+## 06. Data quality monitoring
 
+📺 [Link to the video](https://www.youtube.com/watch?v=fytrmPbcLhI)
 
+Now we will save the "real data" with [evidently_metrics_calculation.py](./taxi_monitoring/evidently_metrics_calculation.py). The data will be read day by day, with an interval of 10 seconds.
+
+After a few runs, you can go back to Grafana and create more panels in the dashboard with the "real data". Don't forget to select the proper timeframe at the top (February 2022)
+
+<img src="./imgs/03_grafana_real.png" width="50%">
+
+## 07. Saving Grafana Dashboard
+
+1. We create a folder [dashboards](./taxi_monitoring/dashboards/)  and inside it an empty file data_drift.json
+
+2. Go back to Grafana, save the dashboard. Now select the dashboard and click on the button "Export" on the top >> JSON. Copy the contents to your data_drift.json file.
+
+<img src="./imgs/04_grafana_save.png" width="50%">
