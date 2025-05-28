@@ -136,11 +136,12 @@ The file is [here](./../mlops/mlops/homework_03/)
 The output will be:
 `Intercept: 24.78`
 
-## Question 6. Register the model 
+
+## Question 6. Register the model
 
 The model is trained, so let's save it with MLFlow.
 
-If you run mage with docker-compose, stop it with Ctrl+C or 
+If you run mage with docker-compose, stop it with Ctrl+C or
 
 ```bash
 docker-compose down
@@ -194,18 +195,13 @@ If you used the suggested docker-compose snippet, mlflow should be accessible at
 
 Find the logged model, and find MLModel file. What's the size of the model? (`model_size_bytes` field):
 
-* 14,534
-* 9,534
-* 4,534
-* 1,534
 
-> Note: typically we do last two steps in one code block.
+> 4,534
+
+<img src="./imgs/07_model_size.png" width="70%">
 
 
-## Submit the results
 
-* Submit your results here: https://courses.datatalks.club/mlops-zoomcamp-2024/homework/hw3
-* If your answer doesn't match options exactly, select the closest one.
 
 
 

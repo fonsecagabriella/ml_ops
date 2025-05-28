@@ -114,3 +114,8 @@ After a few runs, you can go back to Grafana and create more panels in the dashb
 2. Go back to Grafana, save the dashboard. Now select the dashboard and click on the button "Export" on the top >> JSON. Copy the contents to your data_drift.json file.
 
 <img src="./imgs/04_grafana_save.png" width="50%">
+
+## 08. Debugging with tests suites and reports
+
+📺 [Link to video](https://www.youtube.com/watch?v=sNSk3ojISh8)
+
