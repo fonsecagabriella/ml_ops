@@ -1,0 +1,21 @@
+# --- Dockerfile -------------------------------
+FROM agrigorev/zoomcamp-model:mlops-2024-3.10.13-slim
+
+# The base image already contains model.bin + dv
+WORKDIR /app
+
+# Copy only what we really need
+COPY starter.py starter.py
+COPY Pipfile* ./
+
+# Install Python deps directly into the image
+# (they must match the notebook: scikit-learn==1.5.0, pandas, pyarrow, etc.)
+RUN pip install --no-cache-dir pipenv && \
+    if [ -f Pipfile ]; then \
+        pipenv install --system --deploy --ignore-pipfile ;\
+    fi
+
+# Default action – can be overridden at `docker run`
+ENTRYPOINT ["python", "starter.py"]
+CMD ["--year", "2023", "--month", "5"]
+# ----------------------------------------------
