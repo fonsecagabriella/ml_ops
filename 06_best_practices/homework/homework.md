@@ -147,10 +147,42 @@ aws s3 ls
 
 In both cases we should adjust commands for localstack. What option do we need to use for such purposes?
 
-* `--backend-store-uri`
-* `--profile`
-* `--endpoint-url`
-* `--version`
+
+> `--endpoint-url`
+
+
+**👩🏽‍💻 EXPLANATION**
+
+- Create [docker-compose](./docker-compose.yaml) for Localstack
+
+- Start Localstack `docker compose up`. Localstack now exposes every AWS service (we enabled only S3) on http://localhost:4566.
+
+- Point AWS CLI to Localstack (⚠️ important step)
+Localstack doesn’t care about real credentials, but the AWS CLI still expects something, so set dummy values and, crucially, tell it where to send the requests:
+
+```bash
+export AWS_ACCESS_KEY_ID=test
+export AWS_SECRET_ACCESS_KEY=test
+export AWS_DEFAULT_REGION=us-east-1
+```
+
+**CLI flag to reach Localstack**
+All AWS CLI commands must include
+`--endpoint-url http://localhost:4566`
+
+If you find typing that flag every time annoying you can create a shell alias:
+`alias awslocal="aws --endpoint-url http://localhost:4566"`
+
+- Create the bucket
+
+```bash
+make_bucket: nyc-duration
+2025-05-30 17:02:11 nyc-duration
+```
+
+
+
+
 
 
 ## Make input and output paths configurable
@@ -241,16 +273,22 @@ df_input.to_parquet(
 
 What's the size of the file?
 
-* 3620
-* 23620
-* 43620
-* 63620
+>  3620
 
 Note: it's important to use the code from the snippet for saving
 the file. Otherwise the size may be different depending on the OS,
 engine and compression. Even if you use this exact snippet, the size
 of your dataframe may still be a bit off. Just select the closest option.
 
+**👩🏽‍💻 EXPLANATION**
+
+- Create the [integration_test.py](./tests/integration_test.py) file
+
+- From the project root, run
+`python -m tests.integration_test`
+We need to run as a package so it recognises the `batch.py` file.
+
+<img src="./imgs/05_file_size.png">
 
 ## Q6. Finish the integration test
 
@@ -272,10 +310,13 @@ verify the result is correct.
 
 What's the sum of predicted durations for the test dataframe?
 
-* 13.08
-* 36.28
-* 69.28
-* 81.08
+> 36.28
+
+**👩🏽‍💻 EXPLANATION**
+
+- Create the file [run_prediciton_sum.py](./run_prediction_sum.py)
+
+- Run `python run_prediciton_sum.py`
 
 
 ## Running the test (ungraded)
@@ -284,6 +325,11 @@ The rest is ready, but we need to write a shell script for doing
 that. 
 
 Let's do that!
+
+**👩🏽‍💻 EXPLANATION**
+- Check file [run_test.sh](./run_tests.sh)
+
+- Usage: `./run_tests.sh`
 
 
 ## Submit the results

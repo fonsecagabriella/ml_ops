@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  localstack:
+    image: localstack/localstack:latest          # community edition
+    container_name: localstack-main
+    ports:
+      - "4566:4566"                              # single “edge” port for every service
+    environment:
+      - SERVICES=s3                              # we only need S3
+      - DEBUG=1
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
