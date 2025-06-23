@@ -21,6 +21,7 @@ Now we need to create the "main" block from which we'll invoke
 the main function. How does the `if` statement that we use for
 this looks like? 
 
+> if __name__ == '__main__':
 
 Hint: after refactoring, check that the code still works. Just run it e.g. for March 2023 and see if it finishes successfully. 
 
